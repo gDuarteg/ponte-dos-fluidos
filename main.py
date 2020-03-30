@@ -3,7 +3,7 @@ from matrizes import matriz_restricoes, matriz_elemento
 import numpy as np
 from solver import solver_gauss
 
-numero_nos, matriz_nos, numero_elementos, matriz_conexoes, numero_forcas, vetor_forcas, numero_restricoes, vetor_restricoes = importa('entrada.xlsx')
+numero_nos, matriz_nos, numero_elementos, matriz_conexoes, numero_forcas, vetor_forcas, numero_restricoes, vetor_restricoes = importa('entrada-tersol.xlsx')
 
 ke = np.zeros((numero_nos*2, numero_nos*2))
 
@@ -27,8 +27,8 @@ for conexoes in matriz_conexoes:
 
     matriz = matriz_elemento(x_inicio, x_fim, y_inicio, y_fim, E, A)
     ke[grau_0:grau_0+2, grau_0:grau_0+2] += matriz[:2, :2]
-    ke[grau_0:grau_0+2, grau_2:grau_2+2] += matriz[2:, :2]
     ke[grau_2:grau_2+2, grau_0:grau_0+2] += matriz[:2, 2:]
+    ke[grau_0:grau_0+2, grau_2:grau_2+2] += matriz[2:, :2]
     ke[grau_2:grau_2+2, grau_2:grau_2+2] += matriz[2:, 2:]
 
 kg, vetor_forcas_restrito = matriz_restricoes(ke, vetor_forcas, vetor_restricoes)
@@ -85,4 +85,4 @@ for i in range(len(reacoes_apoio)):
 
 reacoes_apoio = np.delete(reacoes_apoio, delete_indexes, 0)
 
-geraSaida("grupo414", reacoes_apoio, vetor_deslocamento, deformacoes, forcas_internas, tensoes_internas)
+geraSaida("grupo4", reacoes_apoio, vetor_deslocamento, deformacoes, forcas_internas, tensoes_internas)

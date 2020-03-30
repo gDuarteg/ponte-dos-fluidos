@@ -17,7 +17,7 @@ def matriz_elemento(x_inicio, x_fim, y_inicio, y_fim, E, A):
     return np.multiply(E * A / L, matriz)
 
 def matriz_restricoes(ke, vetor_forcas, vetor_restricoes):
-    list(vetor_restricoes).reverse()
+    list(vetor_restricoes).sort(reverse=True)
 
     vetor_forcas = np.delete(vetor_forcas, vetor_restricoes, 0)
 
