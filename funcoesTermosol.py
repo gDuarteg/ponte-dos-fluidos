@@ -124,19 +124,14 @@ def importa(entradaNome):
 def geraSaida(nome,Ft,Ut,Epsi,Fi,Ti):
     f = open(f"{nome}.txt","w+")
     f.write('Reacoes de apoio [N]\n') # pros graus restritos/ matriz de rigidez sem restricoes * deslocamentos = F completao -> pegar indices restritos
-    Ft = [f[0] for f in Ft]
     f.write(str(Ft))
     f.write('\n\nDeslocamentos [m]\n')
-    Ut = [f[0] for f in Ut]
     f.write(str(Ut))
     f.write('\n\nDeformacoes []\n')
-    Epsi = [f[0] for f in Epsi]
     f.write(str(Epsi))
     f.write('\n\nForcas internas [N]\n') # tensao * area
-    Fi = [f[0] for f in Fi]
     f.write(str(Fi))
-    f.write('\n\nTensoes internas [Pa]\n') 
-    Ti = [f[0] for f in Ti]
+    f.write('\n\nTensoes internas [Pa]\n')
     f.write(str(Ti))
     f.close()
     
